@@ -1,5 +1,15 @@
 Goals for the language and environment.
 
+Generalised places.
+First class labels + polymorphic row types.
+Explicit quantification - exists, forall, mu, maybe nu, fresh, maybe lambda?
+Linear variables and becoming types.
+Polarised types - positive and negative positions.
+
+Algebraic effects + capabilities.
+
+A staged computation story that works without needing separate compilation or files. Some kind of notion of 'chunks' or partial evaluation fragments for the read-eval cycle, so that the reader can be modified even with the execution model that has no notion of source files.
+
 A fantasy language, unhindered by reality.
 
 Ur-Principle: Like Atomish, but starting from first class labels and row polymorphism instead of starting from message sends to activatable cells.
@@ -7,19 +17,19 @@ Ur-Principle: Like Atomish, but starting from first class labels and row polymor
 Does this even make sense? I am not yet sure.
 The Principles
 
-    First class labels and row polymorphic types.
-    Reified Readers, Evallers, Printers, Universes, Runloops, and Mirrors.
-    Parameterised modules a la Functors, with explicit support for mutual recusion. This allows, amongst other things, really good tree shaking and permgen trimming, as well as elegantly solving the conflicting dependencies problem.
-    Generation of statically and dynamically linked binaries.
-    Something like a logical extension of functional core/imperative shell.
-    Use of staged computation, metaprogramming, generic programming, and tree rewriting for optimisation.
-    No C or C++ anywhere (except as needed for platform/library linkage eg for Open GL support).
-    Type-directed metaprogramming.
-    Locatives, multiple typing.
-    Explicit, extensive use of quantification.
-    Both parametric (ie 'Theorems for Free') and non-parametric code, with clear edges to prevent breaking invariants.
-    Swapping out the reader mid read/the evaller mid eval.
-    A continuum of compile-type to run-time, rather than a binary.
+- First class labels and row polymorphic types.
+- Reified Readers, Evallers, Printers, Universes, Runloops, and Mirrors.
+- Parameterised modules a la Functors, with explicit support for mutual recusion. This allows, amongst other things, really good tree shaking and permgen trimming, as well as elegantly solving the conflicting dependencies problem.
+- Generation of statically and dynamically linked binaries.
+- Something like a logical extension of functional core/imperative shell.
+- Use of staged computation, metaprogramming, generic programming, and tree rewriting for optimisation.
+- No C or C++ anywhere (except as needed for platform/library linkage eg for Open GL support).
+- Type-directed metaprogramming.
+- Locatives, multiple typing.
+- Explicit, extensive use of quantification.
+- Both parametric (ie 'Theorems for Free') and non-parametric code, with clear edges to prevent breaking invariants.
+- Swapping out the reader mid read/the evaller mid eval.
+- A continuum of compile-type to run-time, rather than a binary.
 
 Bibliography/Inspirations/Influences
 
