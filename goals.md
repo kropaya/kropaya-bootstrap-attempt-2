@@ -14,6 +14,8 @@ Algebraic effects + capabilities.
 
 A staged computation story that works without needing separate compilation or files. Some kind of notion of 'chunks' or partial evaluation fragments for the read-eval cycle, so that the reader can be modified even with the execution model that has no notion of source files.
 
+Patterns and sections.
+
 ##A fantasy language, unhindered by reality.
 
 Ur-Principle: Like Atomish, but starting from first class labels and row polymorphism instead of starting from message sends to activatable cells.
