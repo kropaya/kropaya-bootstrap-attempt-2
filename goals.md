@@ -1,21 +1,26 @@
-Goals for the language and environment.
+##Goals for the language and environment.
 
 Generalised places.
+
 First class labels + polymorphic row types.
+
 Explicit quantification - exists, forall, mu, maybe nu, fresh, maybe lambda?
+
 Linear variables and becoming types.
+
 Polarised types - positive and negative positions.
 
 Algebraic effects + capabilities.
 
 A staged computation story that works without needing separate compilation or files. Some kind of notion of 'chunks' or partial evaluation fragments for the read-eval cycle, so that the reader can be modified even with the execution model that has no notion of source files.
 
-A fantasy language, unhindered by reality.
+##A fantasy language, unhindered by reality.
 
 Ur-Principle: Like Atomish, but starting from first class labels and row polymorphism instead of starting from message sends to activatable cells.
 
 Does this even make sense? I am not yet sure.
-The Principles
+
+##The Principles
 
 - First class labels and row polymorphic types.
 - Reified Readers, Evallers, Printers, Universes, Runloops, and Mirrors.
