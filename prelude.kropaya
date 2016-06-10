@@ -1,0 +1,35 @@
+%thing Prelude
+  %thing ∀S. ∃(• ∈ ⊞ S → ⊞ S → ⊟ S). Magma.
+    %expose •.
+  %end
+  
+  %thing ∀S. ∃(• ∈ ⊞ S → ⊞ S → ⊟ S). Semigroup.
+    %expose •.
+    ※ We want to be able to show associativity, that is:
+    ※   ∀(a: S) (b: S) (c: S). (a • b) • c ≡ a • (b • c)
+  %end
+
+  %thing ∀S. ∃(•: ⊞ S → ⊞ S → ⊟ S) (id: S). Monoid.
+    %expose •, id.
+    ※ We want to be able to show associativity and identity, that is:
+    ※   ∀(a: S) (b: S) (c: S). (a • b) • c ≡ a • (b • c)
+    ※   ∀(a: S). a • id ≡ id • a ≡ a
+  %end
+
+  ※ Assuming that we have the following:
+  id^- ∈ ∀x. ı(it ∈ x).  ⊞ x → ⊟ x.
+  id^- it = (%return it). ※ %return turns a data into a computation; it has nothing to do with monads
+
+  %thing ∃x. unary-thing.
+  %end
+
+  ※ Does this make sense?
+  %thing ∃(content-type ∈ unary-thing). μfoldl foldMap fold. Foldable.
+    %expose fold, foldl, foldMap.
+    fold ∈ ∀S. ∀x (y ∈ S). ∃(m ∈ Monoid x y). ⊞ content-type S → ⊟ S.
+    fold = foldMap m id^-.
+    foldMap ∈ ∀a. ∀S. ∀x (y ∈ S). ∃(m: Monoid x y). ⊞ (⊞ a → ⊟ S) → ⊞ content-type a → ⊟ S.
+    foldl ∈ ∀a b. ⊞ (⊞ a → ⊞ b → ⊟ a) → ⊞ a → ⊞ content-type b → ⊟ a.
+  %end
+
+%end
