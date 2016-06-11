@@ -17,14 +17,12 @@
     ※   ∀(a: S). a • id ≡ id • a ≡ a
   %end
 
-  ※ Assuming that we have the following:
   id^- ∈ ∀x. ı(it ∈ x).  ⊞ x → ⊟ x.
   id^- it = (%return it). ※ %return turns a data into a computation; it has nothing to do with monads
 
   %thing ∃x. unary-thing.
   %end
 
-  ※ Does this make sense?
   %thing ∃(container-type ∈ unary-thing). μfoldl foldMap fold. Foldable.
     %expose fold, foldl, foldr, foldMap, empty.
     fold ∈ ∀S. ∀x (y ∈ S). ∃(m ∈ Monoid x y). ⊞ container-type S → ⊟ S.
