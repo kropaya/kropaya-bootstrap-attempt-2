@@ -21,5 +21,6 @@ libraryDependencies ++= Seq(
     "ch.qos.logback" % "logback-classic" % "1.1.3",
     "com.github.jnr" % "jnr-ffi" % "2.0.9",
     "com.github.jnr" % "jffi" % "1.2.11",
-    "com.github.jnr" % "jnr-posix" % "3.0.29"
+    "com.github.jnr" % "jnr-posix" % "3.0.29",
+    "org.scala-lang.modules" %% "scala-parser-combinators" % "1.0.4"
 )
