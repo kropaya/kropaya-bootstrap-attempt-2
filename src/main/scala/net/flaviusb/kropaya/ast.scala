@@ -43,7 +43,7 @@ case class Lambda(name: String) extends Quantifier(name) {}
 
 trait Law {}
 
-case class Thing extends Law {}
+case class Thing(name: String, quantifier-block: Array[Quantifier], expose: Array[String], laws: Array[Law]) extends Law {}
 
 case class In extends Law {}
 
