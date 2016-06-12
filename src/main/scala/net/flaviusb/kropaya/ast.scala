@@ -31,21 +31,21 @@ path expressions - eg referring inside of things - currenly we use #
 
 */
 
-case class Type-constraint() {}
+class TypeConstraint {}
 
-class Quantifier(name: String, constraints: Array[Type-constraint]) {}
+class Quantifier(name: String, constraints: Array[TypeConstraint]) {}
 
-case class Forall(name: String) extends Quantifier(name) {}
-case class Exists(name: String) extends Quantifier(name) {}
-case class Fresh(name: String) extends Quantifier(name) {}
-case class Mu(name: String) extends Quantifier(name) {}
-case class Lambda(name: String) extends Quantifier(name) {}
+case class Forall(name: String, constraints: Array[TypeConstraint]) extends Quantifier(name, constraints) {}
+case class Exists(name: String, constraints: Array[TypeConstraint]) extends Quantifier(name, constraints) {}
+case class Fresh(name: String, constraints: Array[TypeConstraint]) extends Quantifier(name, constraints) {}
+case class Mu(name: String, constraints: Array[TypeConstraint]) extends Quantifier(name, constraints) {}
+case class Lambda(name: String, constraints: Array[TypeConstraint]) extends Quantifier(name, constraints) {}
 
 trait Law {}
 
-case class Thing(name: String, quantifier-block: Array[Quantifier], expose: Array[String], laws: Array[Law]) extends Law {}
+case class Thing(name: String, quantifier_block: Array[Quantifier], expose: Array[String], laws: Array[Law]) extends Law {}
 
-case class In extends Law {}
+class In extends Law {}
 
-case class Pattern extends Law {}
+class Pattern extends Law {}
 
