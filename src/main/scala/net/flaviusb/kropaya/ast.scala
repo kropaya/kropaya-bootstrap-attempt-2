@@ -31,7 +31,9 @@ path expressions - eg referring inside of things - currenly we use #
 
 */
 
-class TypeConstraint {}
+trait ASTable
+
+class TypeConstraint extends Law {}
 
 class Quantifier(name: String, constraints: Array[TypeConstraint]) {}
 
@@ -45,7 +47,6 @@ trait Law {}
 
 case class Thing(name: String, quantifier_block: Array[Quantifier], expose: Array[String], laws: Array[Law]) extends Law {}
 
-class In extends Law {}
-
 class Pattern extends Law {}
 
+case class Variable(name: String)
