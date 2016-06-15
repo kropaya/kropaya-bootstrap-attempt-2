@@ -31,17 +31,17 @@ path expressions - eg referring inside of things - currenly we use #
 
 */
 
-trait ASTable
+trait Expression
 
-class TypeConstraint extends Law {}
+class TypeConstraint extends Law with Expression {}
 
-class Quantifier(name: String, constraints: Array[TypeConstraint]) {}
+class Quantifier(introducing: Variable, constraints: Array[TypeConstraint]) {}
 
-case class Forall(name: String, constraints: Array[TypeConstraint]) extends Quantifier(name, constraints) {}
-case class Exists(name: String, constraints: Array[TypeConstraint]) extends Quantifier(name, constraints) {}
-case class Fresh(name: String, constraints: Array[TypeConstraint]) extends Quantifier(name, constraints) {}
-case class Mu(name: String, constraints: Array[TypeConstraint]) extends Quantifier(name, constraints) {}
-case class Lambda(name: String, constraints: Array[TypeConstraint]) extends Quantifier(name, constraints) {}
+case class Forall(introducing: Variable, constraints: Array[TypeConstraint]) extends Quantifier(introducing, constraints) {}
+case class Exists(introducing: Variable, constraints: Array[TypeConstraint]) extends Quantifier(introducing, constraints) {}
+case class Fresh(introducing: Variable, constraints: Array[TypeConstraint]) extends Quantifier(introducing, constraints) {}
+case class Mu(introducing: Variable, constraints: Array[TypeConstraint]) extends Quantifier(introducing, constraints) {}
+case class Lambda(introducing: Variable, constraints: Array[TypeConstraint]) extends Quantifier(introducing, constraints) {}
 
 trait Law {}
 
@@ -49,4 +49,4 @@ case class Thing(name: String, quantifier_block: Array[Quantifier], expose: Arra
 
 class Pattern extends Law {}
 
-case class Variable(name: String)
+case class Variable(name: String) extends Expression

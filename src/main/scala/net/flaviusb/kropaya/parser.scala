@@ -9,4 +9,5 @@ object KropayaParser extends RegexParsers {
     "\\A((([_+]+[_+:]*)?[a-zA-Z][a-zA-Z0-9_$!?%=-]*)|([~!@$^*_='`?★×÷≠⧺⧻§∘•·≢∧∨∪∩□◊⊃+-]+)|([\\\\])|…)(\\^[+-])?".r ^^ {
       x => Variable(x)
     }
+  def expression: Parser[Expression] = variable 
 }
