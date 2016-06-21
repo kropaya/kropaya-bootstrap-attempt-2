@@ -20,7 +20,10 @@ object KropayaParser extends RegexParsers {
   }
   def expression_part: Parser[Expression] = bracketed_expression | variable
   def expression: Parser[Expression] = application | expression_part
-  def thing: Parser[Thing] = "%thing" ~ ws ~ name_pattern ~ nl ~ "%end" ^^ { 
-    case _ ~ _ ~ name ~ _ ~ _ => Thing(name, Array(), Array(), Array())
+  def expose: Parser[List[String]] = "%expose" ~ ws ~ (((name_pattern ~ "," ~ ws) ^^ { case name ~ _ ~ _ => name })+) ~ nl ^^ {
+    case _ ~ _ ~ names ~ _ => names
+  }
+  def thing: Parser[Thing] = "%thing" ~ ws ~ name_pattern ~ nl ~ (expose?) ~ (ws?) ~ "%end" ^^ {
+    case _ ~ _ ~ name ~ _ ~ ex ~ _ ~ _ => Thing(name, Array(), ex.getOrElse(List()).toArray, Array())
   }
 }
