@@ -13,5 +13,9 @@ object KropayaParser extends RegexParsers {
     }
   def ws: Parser[String] = "[ ]+".r ^^ { _ => "" }
   def bracketed_expression: Parser[Expression] = "(" ~ ws ~ expression ~ ws ~ ")" ^^ { case "(" ~ _ ~ x ~ _ ~ ")" => x }
-  def expression: Parser[Expression] = bracketed_expression | variable
+  def application: Parser[Expression] = expression_part ~ (((ws ~ expression_part) ^^ {case _ ~ arg => arg })+) ^^ {
+    case fn ~ args => Application(fn, args)
+  }
+  def expression_part: Parser[Expression] = bracketed_expression | variable
+  def expression: Parser[Expression] = application | expression_part
 }

@@ -50,3 +50,4 @@ case class Thing(name: String, quantifier_block: Array[Quantifier], expose: Arra
 class Pattern extends Law {}
 
 case class Variable(name: String) extends Expression
+case class Application(fn: Expression, args: List[Expression]) extends Expression
