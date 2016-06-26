@@ -23,7 +23,7 @@ object KropayaParser extends RegexParsers {
   def expose: Parser[List[String]] = "%expose" ~ ws ~ (((name_pattern ~ "," ~ ws) ^^ { case name ~ _ ~ _ => name })+) ~ nl ^^ {
     case _ ~ _ ~ names ~ _ => names
   }
-  def thing: Parser[Thing] = "%thing" ~ ws ~ name_pattern ~ nl ~ (expose?) ~ (ws?) ~ "%end" ^^ {
-    case _ ~ _ ~ name ~ _ ~ ex ~ _ ~ _ => Thing(name, Array(), ex.getOrElse(List()).toArray, Array())
+  def thing: Parser[Thing] = "%thing" ~ (ws?) ~ nl ~ (expose?) ~ (ws?) ~ "%end" ^^ {
+    case _ ~ _ ~ _ ~ ex ~ _ ~ _ => Thing(Array(), ex.getOrElse(List()).toArray, Array())
   }
 }

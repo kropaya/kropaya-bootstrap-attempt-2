@@ -45,7 +45,7 @@ case class Lambda(introducing: Variable, constraints: Array[TypeConstraint]) ext
 
 trait Law {}
 
-case class Thing(name: String, quantifier_block: Array[Quantifier], expose: Array[String], laws: Array[Law]) extends Law {}
+case class Thing(quantifier_block: Array[Quantifier], expose: Array[String], laws: Array[Law]) extends Law {}
 
 class Pattern extends Law {}
 

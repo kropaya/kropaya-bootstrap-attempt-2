@@ -1,17 +1,17 @@
-μid^- unary-thing Monoid Foldable. %thing Prelude
+Prelude = μid^- unary-thing Monoid Foldable Semigroup Magma. %thing
   %expose Magma, Semigroup, Monoid, id^-, unary-thing, Foldable.
-  %thing ∀S. ∃(• ∈ ⊞ S → ⊞ S → ⊟ S). Magma.
+  Magma = ∀S. ∃(• ∈ ⊞ S → ⊞ S → ⊟ S). %thing
     %expose •.
   %end
   
-  %thing ∀S. ∃(• ∈ ⊞ S → ⊞ S → ⊟ S). Semigroup.
+  Semigroup = ∀S. ∃(• ∈ ⊞ S → ⊞ S → ⊟ S). %thing
     %expose •.
     %import Magma •.
     ※ We want to be able to show associativity, that is:
     ※   ∀(a: S) (b: S) (c: S). (a • b) • c ≡ a • (b • c)
   %end
 
-  %thing ∀S. ∃(•: ⊞ S → ⊞ S → ⊟ S) (id: S). Monoid.
+  Monoid = ∀S. ∃(•: ⊞ S → ⊞ S → ⊟ S) (id: S). %thing
     %expose •, id.
     %import Semigroup •.
     ※ We want to be able to show associativity and identity, that is:
@@ -22,10 +22,7 @@
   id^- ∈ ∀x. ı(it ∈ x).  ⊞ x → ⊟ x.
   id^- it = (%return it). ※ %return turns a data into a computation; it has nothing to do with monads
 
-  %thing ∃x. unary-thing.
-  %end
-
-  %thing ∃(container-type ∈ unary-thing). μfoldl foldMap fold. Foldable.
+  Foldable = ∃container-type. μfoldl foldMap fold. %thing 
     %expose fold, foldl, foldr, foldMap, empty.
     fold ∈ ∀S. ∀x (y ∈ S). ∃(m ∈ Monoid x y). ⊞ container-type S → ⊟ S.
     fold = foldMap m id^-.
@@ -35,7 +32,7 @@
     empty ∈ ∀a. ⊞ container-type a → Bool.
   %end
   
-  %thing FoldList.
+  FoldList = %thing
     %expose fold, foldl, foldr, foldMap, empty.
     %import Foldable List.
     ※ Implementation...
