@@ -6,12 +6,14 @@
   
   %thing ∀S. ∃(• ∈ ⊞ S → ⊞ S → ⊟ S). Semigroup.
     %expose •.
+    %import Magma •.
     ※ We want to be able to show associativity, that is:
     ※   ∀(a: S) (b: S) (c: S). (a • b) • c ≡ a • (b • c)
   %end
 
   %thing ∀S. ∃(•: ⊞ S → ⊞ S → ⊟ S) (id: S). Monoid.
     %expose •, id.
+    %import Semigroup •.
     ※ We want to be able to show associativity and identity, that is:
     ※   ∀(a: S) (b: S) (c: S). (a • b) • c ≡ a • (b • c)
     ※   ∀(a: S). a • id ≡ id • a ≡ a
@@ -31,6 +33,12 @@
     foldl ∈ ∀a b. ⊞ (⊞ a → ⊞ b → ⊟ a) → ⊞ a → ⊞ container-type b → ⊟ a.
     foldr ∈ ∀a b. ⊞ (⊞ a → ⊞ b → ⊟ b) → ⊞ b → ⊞ container-type a → ⊟ b.
     empty ∈ ∀a. ⊞ container-type a → Bool.
+  %end
+  
+  %thing FoldList.
+    %expose fold, foldl, foldr, foldMap, empty.
+    %import Foldable List.
+    ※ Implementation...
   %end
 
 %end
