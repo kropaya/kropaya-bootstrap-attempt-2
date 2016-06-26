@@ -1,4 +1,4 @@
-%thing Prelude
+μid^- unary-thing Monoid Foldable. %thing Prelude
   %expose Magma, Semigroup, Monoid, id^-, unary-thing, Foldable.
   %thing ∀S. ∃(• ∈ ⊞ S → ⊞ S → ⊟ S). Magma.
     %expose •.
